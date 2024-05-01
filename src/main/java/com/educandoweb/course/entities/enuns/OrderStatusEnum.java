@@ -10,7 +10,7 @@ public enum OrderStatusEnum {
     private final int codeStatus;
 
     private OrderStatusEnum(int status) {
-        this.codeStatus =status;
+        this.codeStatus = status;
     }
     public int getCodeStatus() {
         return codeStatus;

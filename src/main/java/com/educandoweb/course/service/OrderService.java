@@ -14,7 +14,7 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public List<Order> findAll(){
+    public List<Order> findAllOrdes(){
         return orderRepository.findAll();
     }
 
@@ -22,11 +22,11 @@ public class OrderService {
     public Order findUserById(Long id){
        //return Oder.findById(id);
        Optional<Order> order = orderRepository.findById(id);
-        Validator(order);
+        validator(order);
         return order.get();
     }
 
-    private void Validator(Optional<Order> order) {
+    private void validator(Optional<Order> order) {
         if (order.isEmpty()) {
             throw new NoSuchElementException("User not found ");
         }

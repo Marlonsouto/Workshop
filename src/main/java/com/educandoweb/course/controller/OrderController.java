@@ -2,9 +2,7 @@ package com.educandoweb.course.controller;
 
 
 import com.educandoweb.course.entities.Order;
-import com.educandoweb.course.entities.User;
 import com.educandoweb.course.service.OrderService;
-import com.educandoweb.course.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +21,7 @@ public class OrderController {
     //teste
     @GetMapping
     public Optional<ResponseEntity<List<Order>>> findAllUsers(){
-        var listOrder = orderService.findAll();
+        var listOrder = orderService.findAllOrdes();
         return Optional.of(ResponseEntity.ok().body(listOrder));
     }
     @GetMapping("/{id}")

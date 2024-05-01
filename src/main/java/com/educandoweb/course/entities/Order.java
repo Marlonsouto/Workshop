@@ -11,7 +11,6 @@ import java.time.Instant;
 
 
 @EqualsAndHashCode
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_order")
@@ -33,13 +32,19 @@ public class Order implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public Order(Instant moment, OrderStatusEnum orderStatus, User user) {
+        this.moment = moment;
+        setOrderStatus(orderStatus);
+        this.user = user;
+    }
+
     public OrderStatusEnum getOrderStatus() {
         return OrderStatusEnum.valueEnumOf(orderStatus);
     }
 
-    public void setOrderStatus(OrderStatusEnum orderStatus) {
-        if(orderStatus != null) {
-            this.orderStatus = orderStatus.getCodeStatus(); ;
+    public void setOrderStatus(OrderStatusEnum status) {
+        if(status != null) {
+            this.orderStatus = status.getCodeStatus() ; ;
         }
     }
 }
