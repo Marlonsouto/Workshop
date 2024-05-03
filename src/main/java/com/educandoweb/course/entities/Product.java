@@ -35,7 +35,7 @@ public class Product implements Serializable {
     @OneToMany
     @JoinTable(name = "tb_products_category",joinColumns = @JoinColumn(name = "product_id")
             ,inverseJoinColumns = @JoinColumn(name="category_id"))
-    private Set<Category> categories = new HashSet<>();
+    private final Set<Category> categories = new HashSet<>();
 
     public Product(Long id, String nome, String description, Double price, String imgUrl) {
         this.id = id;

@@ -24,7 +24,6 @@ public class Order implements Serializable {
 
     @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM'T'HH-mm-ss'z'", timezone = "GMT")
-
     private Instant moment;
     private Integer orderStatus;
 
