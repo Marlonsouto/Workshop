@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +20,15 @@ import java.util.List;
 public class User implements Serializable {
 
     //@SerialllArgsConstructor
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Order> orderList = new ArrayList<>();
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
     @NonNull
     String name;
 

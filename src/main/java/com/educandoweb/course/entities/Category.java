@@ -22,7 +22,7 @@ import java.util.Set;
 public class Category implements Serializable {
 
     private static final Long serialVersionUDI = 1L;
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -34,7 +34,8 @@ public class Category implements Serializable {
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
-    public Category(String nome) {
+    public Category(Long id, String nome) {
+        this.id = id;
         this.nome = nome;
     }
 }

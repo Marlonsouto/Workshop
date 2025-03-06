@@ -23,7 +23,7 @@ public class Product implements Serializable {
     private Long id;
 
     @Setter
-    @Column(name = "name")
+    @Column(name = "name_product")
     private String nome;
     @Setter
     private String description;
@@ -32,7 +32,7 @@ public class Product implements Serializable {
     @Setter
     private String imgUrl;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(name = "tb_products_category",joinColumns = @JoinColumn(name = "product_id")
             ,inverseJoinColumns = @JoinColumn(name="category_id"))
     private final Set<Category> categories = new HashSet<>();

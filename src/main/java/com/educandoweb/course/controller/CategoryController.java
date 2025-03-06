@@ -3,6 +3,7 @@ package com.educandoweb.course.controller;
 
 import com.educandoweb.course.entities.Category;
 import com.educandoweb.course.service.CategoryService;
+import jakarta.validation.Valid;
 import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class CategoryController {
         return Optional.of(ResponseEntity.ok().body(category));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Category> findCategoryById(@PathVariable Long id){
+    public ResponseEntity<Category> findCategoryById(@PathVariable @Valid Long id){
         var categoryId = categoryService.findCategoryById(id);
         return ResponseEntity.ok().body(categoryId);
     }
